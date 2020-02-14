@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Vraag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,12 +24,17 @@ class DefaultController extends AbstractController
      */
     public function toggleArticleHear()
     {
-        // TODO - actually heart/unheart the article!
-        $data = ['heats'=>rand(5,100)];
+        $em = $this->getDoctrine()->getManager();
+
+        $data = $em->getRepository(Vraag::class)->findAll();
+
+        //dd($data);
+
         $response = new Response(json_encode($data));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
 //        return new JsonResponse(['hearts' => rand(5, 100)]);
     }
+
 }
