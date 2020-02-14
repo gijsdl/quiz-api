@@ -57,6 +57,13 @@ class Vraag implements \JsonSerializable
         return $this->id;
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getQuestion(): ?string
     {
         return $this->question;

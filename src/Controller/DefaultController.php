@@ -20,21 +20,25 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/news", name="article_toggle_heart")
+     * @Route("/vragen", name="article_toggle_heart")
      */
-    public function toggleArticleHear()
+    public function getVragen()
     {
         $em = $this->getDoctrine()->getManager();
 
         $data = $em->getRepository(Vraag::class)->findAll();
+        shuffle($data);
+        $data = array_slice($data, 0, 6, true);
 
+        for ($i = 0; $i < count($data); $i++){
+            $data[$i]->setId($i+1);
+        }
         //dd($data);
 
         $response = new Response(json_encode($data));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
-//        return new JsonResponse(['hearts' => rand(5, 100)]);
     }
 
 }
