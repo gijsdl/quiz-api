@@ -83,4 +83,21 @@ class DefaultController extends AbstractController
         return $response;
     }
 
+
+    /**
+     * @Route("/history-details/{id}", name="get_vragen_details")
+     */
+    public function getHistoryDetails($id){
+        $em = $this->getDoctrine()->getManager();
+
+        $data = $em->getRepository(Uitslag::class)->find($id);
+
+//        dd($data);
+
+        $response = new Response(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
+    }
+
 }

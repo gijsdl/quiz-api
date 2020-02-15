@@ -145,14 +145,15 @@ class Uitslag implements \JsonSerializable
      */
     public function jsonSerialize()
     {
-        return[
-          'name'=>$this->naam,
-            'question1'=>$this->question1,
-            'question2'=>$this->question2,
-            'question3'=>$this->question3,
-            'question4'=>$this->question4,
-            'question5'=>$this->question5,
-            'question6'=>$this->question6,
+        return [
+            'id'=> $this->id,
+            'name' => $this->naam,
+            'question1' => $this->question1,
+            'question2' => $this->question2,
+            'question3' => $this->question3,
+            'question4' => $this->question4,
+            'question5' => $this->question5,
+            'question6' => $this->question6,
         ];
     }
 }
