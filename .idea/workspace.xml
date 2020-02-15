@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db946ffb-ef16-4e67-83aa-2553095718c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/APIEndpoint.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APIEndpoint.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vraag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vraag.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,8 @@
       <workItem from="1581709600686" duration="33000" />
       <workItem from="1581709782661" duration="249000" />
       <workItem from="1581710374324" duration="15000" />
-      <workItem from="1581710414953" duration="2575000" />
+      <workItem from="1581710414953" duration="2847000" />
+      <workItem from="1581776290554" duration="7127000" />
     </task>
     <servers />
   </component>
@@ -182,5 +181,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581710384838" />
+    <state x="687" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581785269553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581785269553" />
   </component>
 </project>
