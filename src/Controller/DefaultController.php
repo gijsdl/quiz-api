@@ -25,12 +25,7 @@ class DefaultController extends AbstractController
         $uitslag = new Uitslag();
 
         $uitslag->setNaam($data['name']);
-        $uitslag->setQuestion1($data['vragen'][0]);
-        $uitslag->setQuestion2($data['vragen'][1]);
-        $uitslag->setQuestion3($data['vragen'][2]);
-        $uitslag->setQuestion4($data['vragen'][3]);
-        $uitslag->setQuestion5($data['vragen'][4]);
-        $uitslag->setQuestion6($data['vragen'][5]);
+        $uitslag->setQuestions($data['vragen']);
 
         $em->persist($uitslag);
         $em->flush();
@@ -53,11 +48,12 @@ class DefaultController extends AbstractController
      */
     public function getVragen()
     {
+        $lenght = 6;
         $em = $this->getDoctrine()->getManager();
 
         $data = $em->getRepository(Vraag::class)->findAll();
         shuffle($data);
-        $data = array_slice($data, 0, 6, true);
+        $data = array_slice($data, 0, $lenght, true);
 
         //dd($data);
 
