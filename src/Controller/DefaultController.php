@@ -32,7 +32,7 @@ class DefaultController extends AbstractController
 
         $response = new JsonResponse(
             [
-                'status' => 'ok',
+                'submitted' => 'ok',
             ],
             JsonResponse::HTTP_CREATED
         );
@@ -54,6 +54,24 @@ class DefaultController extends AbstractController
         $data = $em->getRepository(Vraag::class)->findAll();
         shuffle($data);
         $data = array_slice($data, 0, $lenght, true);
+
+        //dd($data);
+
+        $response = new Response(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
+    }
+
+    /**
+     * @Route("/all-questions", name="all_questions")
+     */
+    public function getAllQuestions()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $data = $em->getRepository(Vraag::class)->findAll();
 
         //dd($data);
 
@@ -93,6 +111,37 @@ class DefaultController extends AbstractController
         $response = new Response(json_encode($data));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
+    }
+
+    /**
+     * @Route("/add-question", name="add_question",  methods={"post"})
+     */
+    public function addQuestion(Request $request){
+
+        $data = json_decode($request->getContent(),
+            true);
+        $question = new Vraag();
+        $question->setQuestion($data['question']);
+        $question->setOption1($data['option1']);
+        $question->setOption2($data['option2']);
+        $question->setOption3($data['option3']);
+        $question->setOption4($data['option4']);
+        $question->setAnswer($data['answer']);
+
+        $em =$this->getDoctrine()->getManager();
+        $em->persist($question);
+        $em->flush();
+
+        $response = new JsonResponse(
+            [
+                'addedQuestion' => 'ok',
+            ],
+            JsonResponse::HTTP_CREATED
+        );
+
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+//        dd($data);
         return $response;
     }
 
