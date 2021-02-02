@@ -17,7 +17,7 @@ class DefaultController extends AbstractController
      */
     public function post(Request $request)
     {
-//        $request->headers->set('Access-Control-Allow-Origin', '*');
+        $request->headers->set('Access-Control-Allow-Origin', '*');
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(),
             true);
@@ -30,16 +30,14 @@ class DefaultController extends AbstractController
         $em->persist($uitslag);
         $em->flush();
 
-        $response = new JsonResponse(
+        $respone = new JsonResponse(
             [
-                'submitted' => 'ok',
-            ],
-            JsonResponse::HTTP_CREATED
+                'submitted'=>'ok'
+            ]
         );
 
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-//        dd($data);
-        return $response;
+        $respone->headers->set('Access-Control-Allow-Origin', '*');
+        return $respone;
 
     }
 
